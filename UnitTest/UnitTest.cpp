@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
+#include "../LAB_5.4/Main.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -11,10 +12,13 @@ namespace UnitTest
 		
 		TEST_METHOD(TestMethod1)
 		{
-			int N = 1, i = 0, K = 16;
-			int n;
-			n = (1.0 * i * N) / ((1.0 * i * i) + (1.0 * N * N));
-			Assert::AreEqual(n, 0);
+			int N = 5;
+			int K = 16;
+			double tolerance = 0.0001;
+			Assert::AreEqual(P0(N, K), P1(N, K, N), tolerance);
+			Assert::AreEqual(P0(N, K), P2(N, K, K), tolerance);
+			Assert::AreEqual(P0(N, K), P3(N, K, N, 1), tolerance);
+			Assert::AreEqual(P0(N, K), P4(N, K, K, 1), tolerance);
 		}
 	};
 }
